@@ -1,0 +1,11 @@
+[
+  {
+    "id": "58d0de53-c8bc-4daa-affb-53eea23ebb06",
+    "email": "admin@maisonelite.com",
+    "password": "$2a$10$o4KMo6LWH7uHx.u6VPEvuu9J97RG.ynxxJa/FqwxFG.fnigOkoQlC",
+    "role": "admin",
+    "name": "Admin",
+    "createdAt": "2026-04-07T12:14:36.992Z",
+    "updatedAt": "2026-04-07T12:14:36.995Z"
+  }
+]

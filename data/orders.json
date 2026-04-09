@@ -1,0 +1,123 @@
+[
+  {
+    "id": "237f3577-6b27-4c4d-ab02-1390a395227a",
+    "orderNumber": "ME-ORD001",
+    "customerName": "Amina Benali",
+    "phone": "0555123456",
+    "address": "12 Rue Didouche Mourad",
+    "wilaya": "Algiers",
+    "items": [
+      {
+        "productName": "Royal Satin Kimono Set",
+        "price": 8900,
+        "quantity": 1,
+        "subtotal": 8900
+      }
+    ],
+    "total": 8900,
+    "shipping": 0,
+    "grandTotal": 8900,
+    "status": "delivered",
+    "paymentMethod": "cod",
+    "createdAt": "2026-04-07T12:14:36.998Z",
+    "updatedAt": "2026-04-07T12:14:36.998Z"
+  },
+  {
+    "id": "6e27f7a3-d202-4268-b387-21106cba059e",
+    "orderNumber": "ME-ORD002",
+    "customerName": "Sara Mansouri",
+    "phone": "0661987654",
+    "address": "45 Boulevard Mohamed V",
+    "wilaya": "Oran",
+    "items": [
+      {
+        "productName": "Golden Hour Abaya",
+        "price": 14500,
+        "quantity": 1,
+        "subtotal": 14500
+      }
+    ],
+    "total": 14500,
+    "shipping": 0,
+    "grandTotal": 14500,
+    "status": "shipped",
+    "paymentMethod": "cod",
+    "createdAt": "2026-04-07T12:14:36.998Z",
+    "updatedAt": "2026-04-07T12:14:36.998Z"
+  },
+  {
+    "id": "1767c82f-0484-4fba-b762-a2f9d51d3dae",
+    "orderNumber": "ME-ORD003",
+    "customerName": "Yasmine Khelifi",
+    "phone": "0770456789",
+    "address": "8 Rue Ben Badis",
+    "wilaya": "Constantine",
+    "items": [
+      {
+        "productName": "Élite Lace Bodycon Dress",
+        "price": 7500,
+        "quantity": 1,
+        "subtotal": 7500
+      },
+      {
+        "productName": "Diamond Dust Evening Clutch",
+        "price": 4500,
+        "quantity": 1,
+        "subtotal": 4500
+      }
+    ],
+    "total": 12000,
+    "shipping": 0,
+    "grandTotal": 12000,
+    "status": "confirmed",
+    "paymentMethod": "cod",
+    "createdAt": "2026-04-07T12:14:36.998Z",
+    "updatedAt": "2026-04-07T12:14:36.998Z"
+  },
+  {
+    "id": "3d8bb388-03cf-4908-950b-fe86d99665b4",
+    "orderNumber": "ME-ORD004",
+    "customerName": "Lina Boudiaf",
+    "phone": "0550111222",
+    "address": "23 Avenue de l'ALN",
+    "wilaya": "Blida",
+    "items": [
+      {
+        "productName": "Empress Embroidered Caftan",
+        "price": 16900,
+        "quantity": 1,
+        "subtotal": 16900
+      }
+    ],
+    "total": 16900,
+    "shipping": 0,
+    "grandTotal": 16900,
+    "status": "pending",
+    "paymentMethod": "cod",
+    "createdAt": "2026-04-07T12:14:36.998Z",
+    "updatedAt": "2026-04-07T12:14:36.998Z"
+  },
+  {
+    "id": "0af10c09-36a6-4834-ba19-f5c7bbb922c2",
+    "orderNumber": "ME-ORD005",
+    "customerName": "Nour Hadjadj",
+    "phone": "0667333444",
+    "address": "15 Cité 1000 Logements",
+    "wilaya": "Setif",
+    "items": [
+      {
+        "productName": "Midnight Silk Blouse",
+        "price": 5900,
+        "quantity": 2,
+        "subtotal": 11800
+      }
+    ],
+    "total": 11800,
+    "shipping": 0,
+    "grandTotal": 11800,
+    "status": "delivered",
+    "paymentMethod": "cod",
+    "createdAt": "2026-04-07T12:14:36.998Z",
+    "updatedAt": "2026-04-07T12:14:36.998Z"
+  }
+]
