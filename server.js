@@ -23,7 +23,6 @@ const allowedOrigins = [
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
-const cors = require("cors");
 
 app.use(cors({
   origin: "https://ecomerce-fronted-theta.vercel.app",
