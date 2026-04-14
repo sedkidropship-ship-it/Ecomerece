@@ -12,6 +12,9 @@ const path = require('path');
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
+const settingsRoutes = require('./routes/settings');
+const deliveryRoutes = require('./routes/delivery');
+const structureRoutes = require('./routes/structure');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,22 +23,29 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
+  'https://ecomerce-fronted-theta.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
 
 app.use(cors({
-  origin: "https://ecomerce-fronted-theta.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Serve uploaded files (logos, etc.)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/settings', settingsRoutes);
+app.use('/api/delivery', deliveryRoutes);
+app.use('/api/structure', structureRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

@@ -95,7 +95,7 @@ exports.getProduct = async (req, res) => {
 // POST /api/products — Create product (admin only)
 exports.createProduct = async (req, res) => {
   try {
-    const { name, price, originalPrice, description, images, stock, category, featured, benefits, specs } = req.body;
+    const { name, price, originalPrice, description, images, stock, category, featured, benefits, specs, colors, sizes, weight } = req.body;
 
     if (!name || !price || !description || !category) {
       return res.status(400).json({ error: 'Name, price, description, and category are required.' });
@@ -116,7 +116,10 @@ exports.createProduct = async (req, res) => {
           rating: 4.8,
           review_count: Math.floor(Math.random() * 50) + 10,
           benefits: benefits || [],
-          specs: specs || {}
+          specs: specs || {},
+          colors: colors || [],
+          sizes: sizes || [],
+          weight: weight || null
         }
       ])
       .select();
@@ -134,7 +137,7 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   try {
     const updates = {};
-    const allowedFields = ['name', 'price', 'originalPrice', 'description', 'images', 'stock', 'category', 'featured', 'benefits', 'specs'];
+    const allowedFields = ['name', 'price', 'originalPrice', 'description', 'images', 'stock', 'category', 'featured', 'benefits', 'specs', 'colors', 'sizes', 'weight'];
 
     for (const field of allowedFields) {
       if (req.body[field] !== undefined) {

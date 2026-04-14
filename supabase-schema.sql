@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS products (
   review_count integer DEFAULT 0,
   benefits text[] DEFAULT '{}',
   specs jsonb DEFAULT '{}'::jsonb,
+  colors text[] DEFAULT '{}',
+  sizes text[] DEFAULT '{}',
+  weight text,
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now()
 );
