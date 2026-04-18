@@ -18,4 +18,8 @@ router.put('/theme', authMiddleware, settingsController.updateTheme);
 router.post('/theme/logo', authMiddleware, settingsController.uploadLogo);
 router.post('/theme/hero', authMiddleware, settingsController.uploadHero);
 
+// Tracking Pixels settings
+router.get('/tracking', settingsController.getTracking);
+router.put('/tracking', authMiddleware, settingsController.updateTracking);
+
 module.exports = router;

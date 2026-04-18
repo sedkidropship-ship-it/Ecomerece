@@ -8,6 +8,16 @@ const fs = require('fs');
 const path = require('path');
 
 const SETTINGS_FILE = path.join(__dirname, '..', 'data', 'settings.json');
+const TRACKING_FILE = path.join(__dirname, '..', 'data', 'tracking.json');
+
+const DEFAULT_TRACKING = {
+  facebookPixelId: '',
+  tiktokPixelId: '',
+  snapchatPixelId: '',
+  googleAdsId: '',
+  testMode: false,
+  updatedAt: new Date().toISOString()
+};
 
 // Default theme — used as fallback
 const DEFAULT_THEME = {
@@ -164,6 +174,53 @@ exports.uploadHero = async (req, res) => {
   } catch (err) {
     console.error('Error uploading hero image:', err);
     res.status(500).json({ error: 'Failed to upload hero image' });
+  }
+};
+
+/**
+ * GET /api/settings/tracking
+ * Public/Private: Backend uses it for injection, Frontend admin for dashboard
+ */
+exports.getTracking = (req, res) => {
+  try {
+    if (fs.existsSync(TRACKING_FILE)) {
+      const raw = fs.readFileSync(TRACKING_FILE, 'utf-8');
+      const parsed = JSON.parse(raw);
+      return res.json({ ...DEFAULT_TRACKING, ...parsed });
+    }
+    res.json(DEFAULT_TRACKING);
+  } catch (err) {
+    console.error('Error fetching tracking settings:', err);
+    res.status(500).json({ error: 'Failed to fetch tracking settings' });
+  }
+};
+
+/**
+ * PUT /api/settings/tracking
+ * Protected — admin only
+ */
+exports.updateTracking = (req, res) => {
+  try {
+    let current = { ...DEFAULT_TRACKING };
+    if (fs.existsSync(TRACKING_FILE)) {
+      const raw = fs.readFileSync(TRACKING_FILE, 'utf-8');
+      current = JSON.parse(raw);
+    }
+
+    const updated = {
+      ...current,
+      ...req.body,
+      updatedAt: new Date().toISOString()
+    };
+
+    const dir = path.dirname(TRACKING_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    
+    fs.writeFileSync(TRACKING_FILE, JSON.stringify(updated, null, 2));
+    res.json({ message: 'Tracking settings updated successfully', tracking: updated });
+  } catch (err) {
+    console.error('Error updating tracking settings:', err);
+    res.status(500).json({ error: 'Failed to update tracking settings' });
   }
 };
 
